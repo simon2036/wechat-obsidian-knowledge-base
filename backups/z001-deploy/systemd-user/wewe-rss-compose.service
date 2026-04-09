@@ -1,0 +1,14 @@
+[Unit]
+Description=WeWe RSS stack core services
+After=default.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=__STACK_ROOT__/deploy/z001
+ExecStart=/usr/bin/docker compose --env-file __STACK_ROOT__/deploy/z001/.env up -d db app caddy
+ExecReload=/usr/bin/docker compose --env-file __STACK_ROOT__/deploy/z001/.env up -d db app caddy
+ExecStop=/usr/bin/docker compose --env-file __STACK_ROOT__/deploy/z001/.env stop db app caddy
+
+[Install]
+WantedBy=default.target

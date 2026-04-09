@@ -1,0 +1,15 @@
+[Unit]
+Description=Folo to Obsidian bridge service
+After=wewe-rss-compose.service
+Requires=wewe-rss-compose.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=__STACK_ROOT__/deploy/z001
+ExecStart=/usr/bin/docker compose --env-file __STACK_ROOT__/deploy/z001/.env up -d bridge
+ExecReload=/usr/bin/docker compose --env-file __STACK_ROOT__/deploy/z001/.env up -d bridge
+ExecStop=/usr/bin/docker compose --env-file __STACK_ROOT__/deploy/z001/.env stop bridge
+
+[Install]
+WantedBy=default.target

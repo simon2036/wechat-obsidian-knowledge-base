@@ -1,0 +1,8 @@
+[
+  {
+    "id": "all",
+    "title": "All Feeds",
+    "url": "https://z001.tail904288.ts.net/feeds/all.atom",
+    "fetch_url": "http://app:4000/feeds/all.atom"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "paths": {
+    "content_root": "WeWe-RSS-AI",
+    "hub_dir": "Hub",
+    "wikis_dir": "Wikis",
+    "state_dir": ".llm-wiki"
+  },
+  "providers": {
+    "default": "local-rules",
+    "fallback": "local-rules",
+    "glm": {
+      "type": "openai-compatible",
+      "api_key_env": "GLM_API_KEY",
+      "base_url_env": "GLM_BASE_URL",
+      "model_env": "GLM_MODEL"
+    },
+    "glm_coding_manual": {
+      "type": "openai-compatible",
+      "api_key_env": "GLM_API_KEY",
+      "base_url_env": "GLM_MANUAL_BASE_URL",
+      "base_url": "https://open.bigmodel.cn/api/coding/paas/v4"
+    },
+    "local-rules": {
+      "type": "local-rules",
+      "model": "local-rules-v1"
+    }
+  },
+  "feeds": {
+    "榴莲忘返-aidd-de39c3": {
+      "enabled": true,
+      "display_name": "榴莲忘返 AIDD",
+      "classifier": "aidd-digest",
+      "provider": "local-rules",
+      "fallback_provider": "local-rules",
+      "glm_manual_enabled": true,
+      "glm_manual_provider": "glm_coding_manual",
+      "glm_primary_model": "glm-5",
+      "glm_fallback_models": ["glm-4.7", "glm-4.6"],
+      "project_extraction": true,
+      "pdf_enabled": true,
+      "pdf_auto_sync_enabled": true,
+      "pdf_auto_sync_initial_lookback_days": 30,
+      "pdf_policy": "key_articles_only",
+      "pdf_source_strategy": "download_then_print",
+      "pdf_auth_strategy": "persistent_profile",
+      "pdf_browser_channel": "msedge",
+      "pdf_profile_name": "zju-aidd",
+      "pdf_user_data_dir": "",
+      "pdf_profile_directory": "",
+      "pdf_login_url": "https://pubs.acs.org/doi/10.1021/acs.jmedchem.4c03159"
+    }
+  }
+}

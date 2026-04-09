@@ -1,0 +1,5 @@
+:8080 {
+	reverse_proxy /folo/* bridge:8081
+	reverse_proxy /bridge/* bridge:8081
+	reverse_proxy app:4000
+}

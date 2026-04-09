@@ -1,0 +1,12 @@
+[Unit]
+Description=Expose WeWe RSS and bridge through Tailscale Funnel
+After=wewe-rss-compose.service
+Requires=wewe-rss-compose.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -lc '/usr/bin/tailscale serve status --json 2>/dev/null | /usr/bin/grep -q "\"Proxy\": \"http://127.0.0.1:8080\"" && /usr/bin/tailscale serve status --json 2>/dev/null | /usr/bin/grep -q "\"z001.tail904288.ts.net:443\": true" || ( /usr/bin/tailscale funnel --https=443 off >/dev/null 2>&1 || true; /usr/bin/tailscale funnel --bg 8080 )'
+ExecReload=/usr/bin/bash -lc '/usr/bin/tailscale serve status --json 2>/dev/null | /usr/bin/grep -q "\"Proxy\": \"http://127.0.0.1:8080\"" && /usr/bin/tailscale serve status --json 2>/dev/null | /usr/bin/grep -q "\"z001.tail904288.ts.net:443\": true" || ( /usr/bin/tailscale funnel --https=443 off >/dev/null 2>&1 || true; /usr/bin/tailscale funnel --bg 8080 )'
+
+[Install]
+WantedBy=default.target

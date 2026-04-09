@@ -1,0 +1,38 @@
+# Runtime data
+obsidian-knowledge-base/Feeds/*
+!obsidian-knowledge-base/Feeds/.gitkeep
+obsidian-knowledge-base/WeWe-RSS-AI/*
+!obsidian-knowledge-base/WeWe-RSS-AI/.gitkeep
+obsidian-knowledge-base/_raw/*
+obsidian-knowledge-base/.wewe-rss-archive/*
+
+# Local vault state
+obsidian-knowledge-base/.obsidian/workspace*.json
+obsidian-knowledge-base/.obsidian/cache/
+
+# Secrets
+secrets/wewe-rss/*
+!secrets/wewe-rss/.gitkeep
+!secrets/wewe-rss/README.md
+
+# Remote backups
+backups/z001-source/*
+!backups/z001-source/.gitkeep
+!backups/z001-source/README.md
+backups/z001-deploy/*
+!backups/z001-deploy/.gitkeep
+!backups/z001-deploy/README.md
+!backups/z001-deploy/.env.example
+!backups/z001-deploy/feeds.example.json
+!backups/z001-deploy/bootstrap-z001.sh
+!backups/z001-deploy/docker-compose.yml
+!backups/z001-deploy/caddy/
+!backups/z001-deploy/caddy/**
+!backups/z001-deploy/systemd-user/
+!backups/z001-deploy/systemd-user/**
+
+# Dependencies and local tooling
+wechat-backend/node_modules/
+wechat-backend/apps/server/node_modules/
+wechat-backend/apps/web/node_modules/
+wechat-backend/.turbo/

@@ -1,0 +1,12 @@
+[Unit]
+Description=Reconcile Tailscale Funnel for WeWe RSS
+
+[Timer]
+OnBootSec=45s
+OnUnitInactiveSec=5min
+AccuracySec=30s
+Persistent=true
+Unit=wewe-rss-funnel.service
+
+[Install]
+WantedBy=timers.target
